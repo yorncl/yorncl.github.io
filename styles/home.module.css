@@ -1,0 +1,12 @@
+div.animatedCircle
+{
+    top: 4em;
+    position: relative;
+}
+
+div.animatedCircle >*
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}

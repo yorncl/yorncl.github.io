@@ -1,26 +1,18 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
+body
+{
+    margin: 0;
+    background-color: #0a0517;
     color: white;
-    background: black;
-  }
+}
+
+body { font-family: "Amiko", sans-serif; }
+
+.header-gradient {
+    background: rgb(2,0,54);
+    background: linear-gradient(42deg, rgb(4, 1, 97) 0%, rgba(65,5,58,1) 50%, rgba(205,15,68,1) 100%);
 }
