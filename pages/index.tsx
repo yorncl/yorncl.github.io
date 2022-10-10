@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 const Home: NextPage = () => {
   return (
     <div className=" flex flex-col items-center">
-      <p align="justify" className="text-base my-5">
+      <p className="text-base my-5">
         Hello, my name is Martin. I study Computer Science at{" "}
         <a
           href="https://42.fr"
