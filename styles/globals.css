@@ -16,16 +16,3 @@ body { font-family: "Amiko", sans-serif; }
     background: rgb(2,0,54);
     background: linear-gradient(42deg, rgb(4, 1, 97) 0%, rgba(65,5,58,1) 50%, rgba(205,15,68,1) 100%);
 }
-
-pre
-{
-    background-color: #24292e ;
-    border: 5px solid #24292e ;
-    border-radius: 5px;
-    @apply my-3 p-3
-}
-
-.navMenu>*
-{
-    @apply mx-2;
-}
