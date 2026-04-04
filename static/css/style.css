@@ -1,0 +1,188 @@
+.cormorant-garamond-default {
+    font-family: "Cormorant Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    color: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: gray;
+}
+
+header {
+    display: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+header a {
+    display: block;
+    z-index: 1000;
+    color: white;
+    margin: 0 2% 0 2%;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 200%;
+}
+
+#homecanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#cinebartop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 15vh;
+    background-color: black;
+    z-index: 1;
+}
+
+#cinebardown {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 15vh;
+    background-color: black;
+    z-index: 1;
+    color: white;
+    font-size: 250%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+#cinebardown > span {
+    display: block;
+}
+
+#guy {
+    position: absolute;
+    left: calc(50vw - 450px);
+    bottom: 7vh;
+}
+
+#guy > div {
+    position: relative;
+}
+
+#body_guy {
+    position: absolute;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+}
+
+#hands {
+    position: absolute;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+}
+
+#blush {
+    border-colos: red;
+    border-width: 15px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2500;
+    opacity: 0%;
+    transition: opacity 1s;
+}
+
+#blush.blushing {
+    opacity: 100%;
+}
+
+img {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+#eye {
+    top: calc(50% - 60px);
+    left: calc(50% - 30px);
+    position: absolute;
+    z-index: 3000;
+}
+
+#eye > div {
+    position: relative;
+}
+
+#eye img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#eyelid {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 140px;
+    height: 0px;
+    background-color: black;
+    z-index: 3001;
+    transition: height 0.2s;
+}
+
+#eyelid.closed {
+    height: 150px;
+}
+
+#eyelid.doubt {
+    height: 75px;
+}
+#eyelid.closed.doubt {
+    height: 75px;
+}
+
+@keyframes talking {
+    from {
+        height: 0;
+    }
+    to {
+        height: 15px;
+    }
+}
+
+#mouth {
+    position: absolute;
+    background-color: white;
+    width: 130px;
+    height: 0px;
+    z-index: 3001;
+    bottom: 20%;
+    left: calc(50% - 30px);
+    transition: height 0.1s;
+}
+
+#mouth.talking {
+    animation-name: talking;
+    animation-duration: 0.08s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
