@@ -414,7 +414,6 @@ window.onload = function () {
 
   let blush_timer = null;
   document.getElementById("guy").onclick = (e) => {
-    if (blush_timer != null) clearTimeout(blush_timer);
     let bound = blush.getBoundingClientRect();
     let x = e.clientX - bound.x;
     let y = e.clientY - bound.y;
@@ -425,6 +424,7 @@ window.onload = function () {
       y > (1 / 3) * bound.height
     ) {
       blush.classList.add("blushing");
+      if (blush_timer != null) clearTimeout(blush_timer);
       blush_timer = setTimeout(() => {
         blush.classList.remove("blushing");
         eyelid.classList.remove("closed");
@@ -460,7 +460,7 @@ window.onload = function () {
     // until the blush class is sure to have been added
     setTimeout(() => {
       blush.classList.remove("blushing");
-    }, 50);
+    }, 150);
 
     setTimeout(() => {
       eyelid.classList.remove("closed");
@@ -468,6 +468,10 @@ window.onload = function () {
     }, 1000);
     start_blinking();
   }
+
+  eyelid.onclick = () => {
+    hide();
+  };
   pupil.onclick = () => {
     hide();
   };
@@ -483,5 +487,7 @@ window.onload = function () {
     }
   }
   let ablink = document.getElementById("aboutlink");
+  let closea = document.getElementById("closeabout");
   ablink.onclick = toggleAbout;
+  closea.onclick = toggleAbout;
 };
