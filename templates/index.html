@@ -3,8 +3,8 @@
 {% block content %}
 <header id="cinebartop">
     <a href="#" id="aboutlink"> About </a>
-    <a href=""> CV </a>
-    <a href=""> Blog </a>
+    <a href="{{get_url(path='cv/resume.pdf')}}"> CV </a>
+    <a href="{{get_url(path='@/blog/_index.md')}}"> Blog </a>
 </header>
 <main>
     <div id="about">
