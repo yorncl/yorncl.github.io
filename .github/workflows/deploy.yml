@@ -2,7 +2,7 @@ name: Deploy Zola site to Pages
 
 on:
   push:
-    branches: ["master"] # Change this to your default branch name
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -24,7 +24,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 8
+          version: 9
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -34,12 +34,13 @@ jobs:
 
       - name: Install dependencies and build JS
         run: |
-          pnpm install
+          pnpm install --frozen-lockfile
           pnpm build:js
 
       - name: Install Zola
-        run: |
-          sudo snap install zola --edge
+        uses: taiki-e/install-action@v2
+        with:
+          tool: zola@0.21.0
 
       - name: Zola Build
         run: zola build
@@ -52,7 +53,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps:deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
