@@ -1,35 +1,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-<header>
-    <a href=""> About </a>
+<header id="cinebartop">
+    <a href="#" id="aboutlink"> About </a>
     <a href=""> CV </a>
     <a href=""> Blog </a>
 </header>
-<div id="cinebartop"></div>
-<div id="cinebardown"><span id="dialog">[ Click anywhere ]</span></div>
-<h1 class="title">
-</h1>
+<main>
+    <div id=about></div>
+    <div id="cinebardown"><span id="dialog">[ Click anywhere ]</span></div>
+    <h1 class="title">
+    </h1>
 
 
-<div id="guy">
-    <div>
-                <img id="body" draggable="false" src="{{get_url(path='weird_little_guy.png')}}"/>
-                <img id="blush" draggable="false" src="{{get_url(path='blush.png')}}"/>
-                <img id="hands" draggable="false" src="{{get_url(path='hands.png')}}"/>
-                <div id="eye">
-                    <div>
-                        <div id="eyelid" class=""></div>
-                        <img draggable="false" id="white" src="{{get_url(path='eyeball_white.png')}}"/>
-                        <img draggable="false" id="pupil" src="{{get_url(path='eyeball_dark.png')}}"/>
+    <div id="guy">
+        <div>
+                    <img id="body" draggable="false" src="{{get_url(path='weird_little_guy.png')}}"/>
+                    <img id="blush" draggable="false" src="{{get_url(path='blush.png')}}"/>
+                    <img id="hands" draggable="false" src="{{get_url(path='hands.png')}}"/>
+                    <div id="eye">
+                        <div>
+                            <div id="eyelid" class=""></div>
+                            <img draggable="false" id="white" src="{{get_url(path='eyeball_white.png')}}"/>
+                            <img draggable="false" id="pupil" src="{{get_url(path='eyeball_dark.png')}}"/>
+                        </div>
                     </div>
+                    <div id="mouth"></div>
                 </div>
-                <div id="mouth"></div>
-            </div>
+        </div>
     </div>
-</div>
 
-<p><a href="{{ get_url(path='@/blog/_index.md') }}">Posts</a>.</p>
-<canvas id="homecanvas"></canvas>
-<script src="{{ get_url(path="js/bundle.js") }}"></script>
+    <canvas id="homecanvas"></canvas>
+    <script src="{{ get_url(path="js/bundle.js") }}"></script>
+</main>
 {% endblock content %}

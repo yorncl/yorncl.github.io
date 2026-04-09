@@ -366,12 +366,32 @@ window.onload = function () {
 
   let dialogbox = document.getElementById("dialog");
   let timer = null;
-  function update_diag(s) {
+
+  let dialogs = [
+    "ahem...",
+    "Hello ?",
+    "It's rare seeing new faces around here",
+    "I'm glad you came by !",
+    "If you weren't there to witness me, I would not exist",
+    "So I'm pretty stoked",
+    "That feels nice, I like existing",
+    "I wish I could know what it is to witness something",
+    "I wish you could tell me how it feels...",
+    "to witness something wanting to witness itself...",
+    "or whatever, it's hard keeping track",
+    "I have to warn you: my memory isn't so great",
+    "I'm starting to forget what we were talking about...",
+    "What were we talking about ?",
+    "...",
+  ];
+  let current_diag = 0;
+  function update_diag() {
     mouth.classList.add("talking");
     if (timer != null) clearInterval(timer);
     dialogbox.innerText = "";
     let i = 0;
     timer = setInterval(addchar, 70);
+    let s = dialogs[current_diag];
     function addchar() {
       if (s[i] == " " && i + 1 < s.length) {
         dialogbox.innerText += " " + s[i + 1];
@@ -385,9 +405,11 @@ window.onload = function () {
         mouth.classList.remove("talking");
       }
     }
+    current_diag++;
+    if (current_diag == dialogs.length) current_diag = 0;
   }
   document.onclick = () => {
-    update_diag("Seb la grosse pute");
+    update_diag();
   };
 
   let blush_timer = null;
@@ -402,7 +424,6 @@ window.onload = function () {
       x - 20 < (2 / 3) * bound.width &&
       y > (1 / 3) * bound.height
     ) {
-      console.log("clicking");
       blush.classList.add("blushing");
       blush_timer = setTimeout(() => {
         blush.classList.remove("blushing");
@@ -426,13 +447,41 @@ window.onload = function () {
   }
   function stop_blinking() {
     clearTimeout(blink_timer);
+    eyelid.classList.remove("closed");
   }
 
   start_blinking();
 
   function hide() {
     stop_blinking();
+    eyelid.classList.add("closed");
+    guy.classList.add("hidden");
+    // a bit hacky, to try to make sure that we wait
+    // until the blush class is sure to have been added
+    setTimeout(() => {
+      blush.classList.remove("blushing");
+    }, 50);
 
+    setTimeout(() => {
+      eyelid.classList.remove("closed");
+      guy.classList.remove("hidden");
+    }, 1000);
     start_blinking();
   }
+  pupil.onclick = () => {
+    hide();
+  };
+
+  function toggleAbout() {
+    console.log("toggle about");
+    let ab = document.getElementById("about");
+
+    if (ab.classList.contains("show")) {
+      ab.classList.remove("show");
+    } else {
+      ab.classList.add("show");
+    }
+  }
+  let ablink = document.getElementById("aboutlink");
+  ablink.onclick = toggleAbout;
 };
